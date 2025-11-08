@@ -1,0 +1,53 @@
+.hero,
+.servicos,
+.diferenciais,
+.sobre,
+.cta-final,
+footer {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+.hero,
+.sobre {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.servicos,
+.cta-final {
+  background-color: var(--color-background-light);
+}
+
+.diferenciais {
+  background-color: var(--color-background-medium);
+}
+
+footer {
+  background-color: var(--color-background-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+.hero a,
+.sobre a {
+  color: var(--color-text-light);
+}
+
+.hero .botao--primario,
+.sobre .botao--primario {
+  color: var(--color-text-light);
+}
+
+.cta-final {
+  text-align: center;
+}
+
+.copyright {
+  color: var(--color-text-light);
+}
