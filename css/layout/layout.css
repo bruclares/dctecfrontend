@@ -12,8 +12,14 @@ footer {
 .sobre {
   background-color: var(--color-background-dark);
   color: var(--color-text-light);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
+.hero {
+  padding-top: 160px;
+  /* padding-bottom: var(--space-xl); */
+}
 .servicos,
 .cta-final {
   background-color: var(--color-background-light);
@@ -28,7 +34,7 @@ footer {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--space-lg);
