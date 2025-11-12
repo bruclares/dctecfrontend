@@ -40,7 +40,7 @@
   }
   .sobre__content h2{
     font-size: var(--font-size-2xl);
-    /* text-align: center; */
+    text-align: center;
   }
   .sobre__content p {
     margin-left: auto;
