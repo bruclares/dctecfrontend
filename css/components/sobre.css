@@ -1,0 +1,45 @@
+.sobre__grid {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.sobre__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.sobre__content h2 {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.sobre__content p {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+  max-width: 65ch;
+}
+
+.sobre__content .botao {
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 768px){
+  .sobre__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  .sobre__content{
+    text-align: center;
+  }
+  .sobre__content h2{
+    font-size: var(--font-size-2xl);
+    text-align: center;
+  }
+  .sobre__content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
