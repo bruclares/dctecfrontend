@@ -1,3 +1,6 @@
+/* ---------------------------------- */
+/* 1. LAYOUT PRINCIPAL (BLOCO)        */
+/* ---------------------------------- */
 .header {
   position: absolute;
   top: 0;
@@ -7,15 +10,7 @@
   background-color: transparent;
   padding: var(--space-md) 0;
   transition: background-color 0.4s ease, padding 0.4s ease,
-    box-shadow 0.4s ease,
-    transform 0.4s ease;
-}
-.header--scrolled {
-  position: fixed;
-  padding: var(--space-sm) 0;
-  background-color: var(--color-text-primary);
-  /* opacity: 0.9; */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .header__nav {
@@ -24,7 +19,25 @@
   align-items: center;
 }
 
-.header__logo img{
+/* ---------------------------------- */
+/* 2. MODIFICADORES DE ESTADO (DESKTOP) */
+/* ---------------------------------- */
+.header--scrolled {
+  position: fixed;
+  padding: var(--space-sm) 0;
+  background-color: var(--color-text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header--hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
+/* ---------------------------------- */
+/* 3. ELEMENTOS INTERNOS (DESKTOP)    */
+/* ---------------------------------- */
+.header__logo img {
   max-width: 100px;
   height: auto;
 }
@@ -38,7 +51,7 @@
 
 .header__link {
   font-family: var(--font-text);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: 500;
   color: var(--color-text-light);
   text-decoration: none;
@@ -46,10 +59,12 @@
   padding-bottom: var(--space-xs);
 }
 
-.header__link:hover::after{
+/* Corrige o bug do sublinhado duplo */
+.header__link:hover {
   text-decoration: none;
 }
 
+/* Efeito 'hover' da linha verde */
 .header__link::after {
   content: "";
   position: absolute;
@@ -66,13 +81,137 @@
   width: 100%;
 }
 
-.header--hidden {
-  transform: translateY(-100%);
-  box-shadow: none;
+/* ---------------------------------- */
+/* 4. COMPONENTES MOBILE (BASE)     */
+/* (Escondidos no desktop por padrão) */
+/* ---------------------------------- */
+.header__mobile-logo {
+  display: none;
+  list-style: none;
 }
 
+.header__mobile-toggle {
+  display: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 9999;
+}
+
+/* O Ícone Hamburger */
+.hamburger-box {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 24px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--color-text-light);
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-inner {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/* ---------------------------------- */
+/* 5. LÓGICA DO ESTADO ABERTO (MOBILE)*/
+/* ---------------------------------- */
+.header--mobile-open .header__list {
+  transform: translateX(0);
+}
+
+/* A Mágica do "X" (Plano B que funcionou) */
+.header--mobile-open .hamburger-inner {
+  background-color: transparent;
+  transform: translateY(-50%);
+}
+
+.header--mobile-open .hamburger-inner::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.header--mobile-open .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+/* ---------------------------------- */
+/* 6. O GRANDE BLOCO RESPONSIVO     */
+/* ---------------------------------- */
 @media (max-width: 768px) {
+  
+  /* Mostra o botão hamburger */
+  .header__mobile-toggle {
+    display: block;
+  }
+  
+  /* Esconde o botão de orçamento da barra */
+  .header__nav > .botao {
+    display: none;
+  }
+  
+  /* Estiliza a "gaveta" (que estava em display: flex no desktop) */
   .header__list {
-    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: var(--space-section);
+    background-color: var(--color-text-primary);
+    
+    /* Vira uma coluna centralizada */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    
+    /* Começa escondida fora da tela */
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 9998;
+  }
+  
+  /* Estiliza os links dentro da gaveta */
+  .header__link {
+    font-size: var(--font-size-2xl);
+  }
+  
+  /* Remove o efeito de linha do desktop */
+  .header__link::after {
+    display: none;
+  }
+  
+  /* Mostra o logo de dentro da gaveta */
+  .header__mobile-logo {
+    display: block;
+    width: 250px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .header__mobile-logo img {
+    width: 100%;
+    height: auto;
   }
 }

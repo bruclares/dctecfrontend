@@ -21,4 +21,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
     //Atualiza a "última posição" para a próxima checagem
     lastScrollY = currentScrollY;
   });
+
+  const mobileToggle = document.querySelector(".header__mobile-toggle");
+  const navLinks = document.querySelectorAll(".header__link");
+
+  function toggleMenu() {
+    header.classList.toggle("header--mobile-open");
+
+    document.body.classList.toggle("body--lock-scroll");
+
+    const isExpanded = header.classList.contains("header--mobile-open");
+    mobileToggle.setAttribute("aria-expanded", isExpanded);
+  }
+
+  mobileToggle.addEventListener("click", toggleMenu);
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (header.classList.contains("header--mobile-open")) {
+        toggleMenu();
+      }
+    });
+  });
 });
