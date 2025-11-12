@@ -50,3 +50,11 @@
   padding: var(--space-md) var(--space-xl);
   font-size: var(--font-size-lg);
 }
+
+.botao--cta {
+  display: block;
+  text-align: center;
+  font-size: var(--font-size-3xl) !important;
+  padding: var(--space-xl) var(--space-lg);
+  line-height: 1.4;
+}
