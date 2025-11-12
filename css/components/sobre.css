@@ -5,13 +5,17 @@
   gap: var(--space-2xl);
 }
 
+.sobre__h2-line {
+  display: block;
+}
+
 .sobre__image {
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-.sobre__content h2 {
+.sobre h2 {
   font-size: var(--font-size-5xl);
   margin-bottom: var(--space-2xl);
 }
@@ -36,7 +40,7 @@
   }
   .sobre__content h2{
     font-size: var(--font-size-2xl);
-    text-align: center;
+    /* text-align: center; */
   }
   .sobre__content p {
     margin-left: auto;
