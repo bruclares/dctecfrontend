@@ -159,6 +159,9 @@
 /* 6. O GRANDE BLOCO RESPONSIVO     */
 /* ---------------------------------- */
 @media (max-width: 768px) {
+  .header__nav{
+    padding-right: var(--space-2xl);
+  }
   
   /* Mostra o botão hamburger */
   .header__mobile-toggle {
