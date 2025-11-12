@@ -38,7 +38,7 @@
   .sobre__content{
     text-align: center;
   }
-  .sobre__content h2{
+  .sobre h2{
     font-size: var(--font-size-2xl);
     text-align: center;
   }
