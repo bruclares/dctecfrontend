@@ -58,3 +58,9 @@
   padding: var(--space-xl) var(--space-lg);
   line-height: 1.4;
 }
+
+@media (max-width: 768px) {
+  .botao--cta{
+    font-size: var(--font-size-xl) !important;
+  }
+}
