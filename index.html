@@ -28,7 +28,11 @@
 
         <ul class="header__list">
           <li class="header__mobile-logo">
-            <a href="/"><img src="/static/images/dctec-logo.svg" alt="DCTec - Voltar ao Início"></a>
+            <a href="/"
+              ><img
+                src="/static/images/dctec-logo.svg"
+                alt="DCTec - Voltar ao Início"
+            /></a>
           </li>
           <li class="header__item">
             <a href="#inicio" class="header__link">Início</a>
@@ -59,7 +63,6 @@
             <span class="hamburger-inner"></span>
           </span>
         </button>
-        
       </nav>
     </header>
 
@@ -99,33 +102,60 @@
 
       <section class="servicos">
         <div class="container">
-          <h2>Soluções de TI Completas para sua Empresa</h2>
-          <article class="card">
-            <h3>Gerenciamento de Redes</h3>
-            <p>
-              Otimização, segurança e configuração de redes, com especialização
-              certificada em MikroTik.
-            </p>
-            <a href="/servicos#redes">Saiba Mais</a>
-          </article>
+          <h2>
+            <span class="servicos__h2-line">Soluções de TI Completas</span>
+            <span class="servicos__h2-line">para sua Empresa</span>
+          </h2>
 
-          <article class="card">
-            <h3>Suporte Técnico</h3>
-            <p>
-              Manutenção preventiva, help desk rápido e soluções de
-              hardware/software para suas estações.
-            </p>
-            <a href="/servicos#suporte">Saiba Mais</a>
-          </article>
+          <div class="servicos__grid">
+            <article class="card">
+              <img
+                class="card__icon"
+                src="static/icons/network.svg"
+                alt=""
+                aria-hidden="true"
+              />
 
-          <article class="card">
-            <h3>CFTV e Segurança</h3>
-            <p>
-              Instalação e configuração de sistemas de vigilância para a
-              segurança do seu patrimônio.
-            </p>
-            <a href="/servicos#cftv">Saiba Mais</a>
-          </article>
+              <h3>Gerenciamento de Redes</h3>
+              <p>
+                Otimização, segurança e configuração de redes, com
+                especialização certificada em MikroTik.
+              </p>
+              <a class="card__link" href="/servicos#redes">Saiba Mais</a>
+            </article>
+
+            <article class="card">
+              <img
+                class="card__icon"
+                src="static/icons/gear.svg"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <h3>Suporte Técnico</h3>
+              <p>
+                Manutenção preventiva, help desk rápido e soluções de
+                hardware/software para suas estações.
+              </p>
+              <a class="card__link" href="/servicos#suporte">Saiba Mais</a>
+            </article>
+
+            <article class="card">
+              <img
+                class="card__icon"
+                src="/static/icons/security-camera.svg"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <h3>CFTV e Segurança</h3>
+              <p>
+                Instalação e configuração de sistemas de vigilância para a
+                segurança do seu patrimônio.
+              </p>
+              <a class="card__link" href="/servicos#cftv">Saiba Mais</a>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -226,10 +256,7 @@
     <footer>
       <div class="container">
         <div>
-          <img
-            src="/static/images/dctec-logo.svg"
-            alt="DCTec - TI Sênior"
-          />
+          <img src="/static/images/dctec-logo.svg" alt="DCTec - TI Sênior" />
           <p>TI Profissional para Pequenas Empresas.</p>
         </div>
 
