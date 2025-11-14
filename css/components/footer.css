@@ -61,7 +61,7 @@
 }
 
 .footer__copyright p {
-  font-size: var(--space-base);
+  font-size: var(--font-size-base);
   color: #e0e0e0;
 }
 
