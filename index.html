@@ -307,40 +307,75 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="footer">
       <div class="container">
-        <div>
-          <img src="/static/images/dctec-logo.svg" alt="DCTec - TI Sênior" />
-          <p>TI Profissional para Pequenas Empresas.</p>
-        </div>
+        <nav class="footer__nav" aria-label="Navegação secundária do site">
+          <div class="footer__brand">
+            <img
+              src="/static/images/dctec-logo.svg"
+              alt="DCTec - TI Sênior"
+              width="150"
+            />
+            <p>TI Profissional para Pequenas Empresas</p>
+          </div>
 
-        <nav aria-label="Navegação secundária do site">
-          <h4>Institucional</h4>
-          <ul>
-            <li><a href="/">Início</a></li>
-            <li><a href="/sobre">Sobre</a></li>
-            <li><a href="/politica-privacidade">Política de Privacidade</a></li>
-          </ul>
-          <h4>Soluções</h4>
-          <ul>
-            <li><a href="/">Gerenciamento de redes</a></li>
-            <li><a href="/sobre">CFTV e Segurança</a></li>
-            <li><a href="/politica-privacidade">Suporte Técnico</a></li>
-          </ul>
-          <h4>Fale conosco</h4>
-          <ul>
-            <li><a href="/">+55 11 99999-9999</a></li>
-            <li><a href="/sobre">contato@dctec.com</a></li>
-            <li><a href="/politica-privacidade">linkedin | instagram</a></li>
-          </ul>
+          <div class="footer__nav-col">
+            <h4>Institucional</h4>
+            <ul>
+              <li><a href="/">Início</a></li>
+              <li><a href="/sobre">Sobre</a></li>
+              <li>
+                <a href="/politica-privacidade">Política de Privacidade</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-col">
+            <h4>Soluções</h4>
+            <ul>
+              <li><a href="/">Gerenciamento de redes</a></li>
+              <li><a href="/sobre">CFTV e Segurança</a></li>
+              <li><a href="/politica-privacidade">Suporte Técnico</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-col">
+            <h4>Fale conosco</h4>
+            <ul class="footer__contact">
+              <li><a href="tel:+5511999999999">+55 11 99999-9999</a></li>
+              <li><a href="mailto:contato@dctec.com">contato@dctec.com</a></li>
+            </ul>
+
+            <ul class="footer__socials">
+              <li>
+                <a href="#" aria-label="LinkedIn da DCTech">
+                  <img
+                    src="static/icons/linkedin-logo.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </a>
+              </li>
+
+              <li>
+                <a href="#" aria-label="Instagram da DCTech">
+                  <img
+                    src="static/icons/instagram-logo.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
 
-        <div class="copyright">
+        <div class="footer__copyright">
           <p>Copyright 2025 | DCTec | Desenvolvido por Nó & Pixel</p>
         </div>
+        
       </div>
     </footer>
-
     <script src="js/main.js"></script>
   </body>
 </html>
