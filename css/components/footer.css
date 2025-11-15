@@ -73,7 +73,7 @@
 }
 
 @media (max-width: 768px) {
-  .footer__nav {
+  .footer__nav{
     grid-template-columns: 1fr;
     text-align: center;
     gap: var(--space-xl);
@@ -86,5 +86,10 @@
 
   .footer__socials {
     justify-content: center;
+  }
+
+  .footer__brand p {
+    margin-left: auto;
+    margin-right: auto;
   }
 }

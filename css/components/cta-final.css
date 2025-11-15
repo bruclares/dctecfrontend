@@ -13,12 +13,15 @@
   font-size: var(--font-size-5xl);
   margin-bottom: var(--space-xl);
   max-width: 20ch;
+  text-align: left;
 }
 
 .cta-final p {
   font-size: var(--font-size-2xl);
   color: #555;
   max-width: 45ch;
+  text-align: left;
+
 }
 
 @media (max-width: 768px) {
@@ -32,10 +35,13 @@
   .cta__content h2{
     font-size: var(--font-size-2xl);
     max-width: none;
+    text-align: center;
   }
   .cta__content p{
     font-size: var(--font-size-base);
     max-width: none;
+    text-align: center;
+
   }
   
 }
