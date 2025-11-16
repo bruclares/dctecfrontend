@@ -155,12 +155,10 @@
   transform: rotate(-45deg);
 }
 
-/* ---------------------------------- */
-/* 6. O GRANDE BLOCO RESPONSIVO     */
-/* ---------------------------------- */
 @media (max-width: 768px) {
   .header__nav{
-    padding-right: var(--space-2xl);
+    padding-right: var(--space-lg);
+    padding-left: var(--space-lg);
   }
   
   /* Mostra o botão hamburger */

@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   const mobileToggle = document.querySelector(".header__mobile-toggle");
-  const navLinks = document.querySelectorAll(".header__link");
+  const allNavLinks = document.querySelectorAll(".header__list a");
 
   function toggleMenu() {
     header.classList.toggle("header--mobile-open");
@@ -36,10 +36,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   mobileToggle.addEventListener("click", toggleMenu);
 
-  navLinks.forEach((link) => {
+  allNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
       if (header.classList.contains("header--mobile-open")) {
-        toggleMenu();
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          toggleMenu();
+        }
       }
     });
   });
