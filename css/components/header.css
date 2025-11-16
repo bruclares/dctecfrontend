@@ -83,13 +83,11 @@
   padding: 0;
   width: 44px;
   height: 44px;
-  align-items: center;
-  justify-content: center;
   display: none;
 }
 
 .hamburger-box {
-  display: inline-block;
+  display: block;
   position: relative;
   width: 30px;
   height: 24px;
@@ -147,6 +145,8 @@
   
   .header__mobile-toggle {
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .header__nav > .botao {
