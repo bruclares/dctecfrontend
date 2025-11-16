@@ -76,6 +76,7 @@
 }
 
 .header__mobile-toggle {
+  display: flex;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -84,15 +85,17 @@
   width: 44px;
   height: 44px;
   display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .hamburger-box {
   display: flex;
   position: relative;
-  width: 30px;
+  width: 45px;
   height: 24px;
-  align-items:center;
-  justify-content: center;
+  /* align-items:center; */
+  /* justify-content: center; */
 }
 
 .hamburger-inner,
@@ -100,7 +103,7 @@
 .hamburger-inner::after {
   content: '';
   position: absolute;
-  width: 100%;
+  width: 30px;
   height: 3px;
   border-radius: 3px;
   background-color: var(--color-text-light);
