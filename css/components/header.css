@@ -91,6 +91,8 @@
   position: relative;
   width: 30px;
   height: 24px;
+  align-items:center;
+  justify-content: center;
 }
 
 .hamburger-inner,
@@ -105,10 +107,10 @@
   transition: all 0.3s ease-in-out;
 }
 
-.hamburger-inner {
+/* .hamburger-inner {
   top: 50%;
   transform: translateY(-50%);
-}
+} */
 
 .hamburger-inner::before {
   top: -10px;
