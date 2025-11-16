@@ -109,9 +109,14 @@
               atendimento flexível para o seu negócio não parar
             </p>
             <div class="hero__actions">
-              <a href="#contato" class="botao botao--primario"
-                >Fale com um Especialista Agora</a
+              <a
+                href="https://api.whatsapp.com/send?phone=5511954291782"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="botao botao--primario"
               >
+                Fale com um Especialista Agora
+              </a>
 
               <a href="#contato" class="botao botao--secundario"
                 >Nossos Serviços</a
@@ -332,6 +337,73 @@
           <a href="#contato" class="botao botao--primario botao--cta"
             >Solicite um Orçamento Gratuito</a
           >
+        </div>
+      </section>
+
+      <section class="contato" id="contato">
+        <div class="container contato__grid">
+          <div class="contato__direct">
+            <h2>Fale com um Especialista</h2>
+            <p>
+              Prefere agilidade? Envie uma mensagem direta. Estamos prontos para
+              atender sua urgência.
+            </p>
+
+            <a
+              href="https://api.whatsapp.com/send?phone=5511954291782"
+              class="botao botao--primario botao--grande"
+              id="whatsapp-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Iniciar Conversa no WhatsApp
+            </a>
+          </div>
+
+          <form
+            class="contato__form"
+            action="URL_DO_FORMSpree_AQUI"
+            method="POST"
+          >
+            <h3>Ou, preencha o formulário:</h3>
+
+            <div class="contato__form-group">
+              <label for="nome">Nome Completo</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu nome"
+                required
+              />
+            </div>
+
+            <div class="contato__form-group">
+              <label for="email">Seu E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="exemplo@email.com"
+                required
+              />
+            </div>
+
+            <div class="contato__form-group">
+              <label for="mensagem">Como podemos ajudar?</label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                rows="5"
+                placeholder="Descreva seu projeto ou problema..."
+                required
+              ></textarea>
+            </div>
+
+            <button typeA="submit" class="botao botao--primario">
+              Enviar Mensagem
+            </button>
+          </form>
         </div>
       </section>
     </main>

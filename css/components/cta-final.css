@@ -5,9 +5,9 @@
   gap: var(--space-2xl);
 }
 
-.cta__content{
+/* .cta__content{
   text-align: center;
-}
+} */
 
 .cta-final h2{
   font-size: var(--font-size-5xl);
