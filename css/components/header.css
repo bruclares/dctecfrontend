@@ -76,7 +76,6 @@
 }
 
 .header__mobile-toggle {
-  display: flex;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -85,8 +84,6 @@
   width: 44px;
   height: 44px;
   display: none;
-  align-items: center;
-  justify-content: center;
 }
 
 .hamburger-box {
@@ -94,8 +91,8 @@
   position: relative;
   width: 45px;
   height: 24px;
-  /* align-items:center; */
-  /* justify-content: center; */
+  align-items:center;
+  justify-content: center;
 }
 
 .hamburger-inner,
