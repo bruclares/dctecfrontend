@@ -1,6 +1,3 @@
-/* ---------------------------------- */
-/* 1. LAYOUT PRINCIPAL (BLOCO)        */
-/* ---------------------------------- */
 .header {
   position: absolute;
   top: 0;
@@ -19,9 +16,6 @@
   align-items: center;
 }
 
-/* ---------------------------------- */
-/* 2. MODIFICADORES DE ESTADO (DESKTOP) */
-/* ---------------------------------- */
 .header--scrolled {
   position: fixed;
   padding: var(--space-sm) 0;
@@ -34,9 +28,6 @@
   box-shadow: none;
 }
 
-/* ---------------------------------- */
-/* 3. ELEMENTOS INTERNOS (DESKTOP)    */
-/* ---------------------------------- */
 .header__logo img {
   max-width: 100px;
   height: auto;
@@ -59,12 +50,10 @@
   padding-bottom: var(--space-xs);
 }
 
-/* Corrige o bug do sublinhado duplo */
 .header__link:hover {
   text-decoration: none;
 }
 
-/* Efeito 'hover' da linha verde */
 .header__link::after {
   content: "";
   position: absolute;
@@ -81,10 +70,6 @@
   width: 100%;
 }
 
-/* ---------------------------------- */
-/* 4. COMPONENTES MOBILE (BASE)     */
-/* (Escondidos no desktop por padrão) */
-/* ---------------------------------- */
 .header__mobile-logo {
   display: none;
   list-style: none;
@@ -95,11 +80,15 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  padding: 10px;
   z-index: 9999;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* O Ícone Hamburger */
 .hamburger-box {
   display: inline-block;
   position: relative;
@@ -132,14 +121,10 @@
   bottom: -10px;
 }
 
-/* ---------------------------------- */
-/* 5. LÓGICA DO ESTADO ABERTO (MOBILE)*/
-/* ---------------------------------- */
 .header--mobile-open .header__list {
   transform: translateX(0);
 }
 
-/* A Mágica do "X" (Plano B que funcionou) */
 .header--mobile-open .hamburger-inner {
   background-color: transparent;
   transform: translateY(-50%);
@@ -161,17 +146,14 @@
     padding-left: var(--space-lg);
   }
   
-  /* Mostra o botão hamburger */
   .header__mobile-toggle {
     display: block;
   }
   
-  /* Esconde o botão de orçamento da barra */
   .header__nav > .botao {
     display: none;
   }
-  
-  /* Estiliza a "gaveta" (que estava em display: flex no desktop) */
+
   .header__list {
     position: fixed;
     top: 0;
@@ -181,30 +163,25 @@
     padding: var(--space-section);
     background-color: var(--color-text-primary);
     
-    /* Vira uma coluna centralizada */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--space-xl);
     
-    /* Começa escondida fora da tela */
     transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
     z-index: 9998;
   }
   
-  /* Estiliza os links dentro da gaveta */
   .header__link {
     font-size: var(--font-size-2xl);
   }
   
-  /* Remove o efeito de linha do desktop */
   .header__link::after {
     display: none;
   }
-  
-  /* Mostra o logo de dentro da gaveta */
+
   .header__mobile-logo {
     display: block;
     width: 250px;
