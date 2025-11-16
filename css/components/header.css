@@ -87,7 +87,7 @@
 }
 
 .hamburger-box {
-  display: block;
+  display: flex;
   position: relative;
   width: 30px;
   height: 24px;
