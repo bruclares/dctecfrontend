@@ -136,10 +136,16 @@
 
 .hamburger-inner::before {
   top: -10px;
+  width: 20px;
+  right: 0;
+  left: auto;
 }
 
 .hamburger-inner::after {
   bottom: -10px;
+  width: 15px;
+  right: 0;
+  left: auto;
 }
 
 /* ---------------------------------- */
@@ -157,10 +163,14 @@
 .header--mobile-open .hamburger-inner::before {
   top: 0;
   transform: rotate(45deg);
+  width: 100%;
+  right: auto;
 }
 .header--mobile-open .hamburger-inner::after {
   bottom: 0;
   transform: rotate(-45deg);
+  width: 100%;
+  right: auto;
 }
 
 /* ---------------------------------- */
