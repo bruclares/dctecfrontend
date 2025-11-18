@@ -1,48 +1,34 @@
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
+  const mobileToggle = document.querySelector(".header__mobile-toggle");
+  const navList = document.querySelector(".header__list");
+  const allNavLinks = document.querySelectorAll(".header__list a");
 
-  let lastScrollY = window.scrollY;
-
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > 50) {
+  function handleScroll() {
+    if (window.scrollY > 50) {
       header.classList.add("header--scrolled");
     } else {
       header.classList.remove("header--scrolled");
     }
-
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      header.classList.add("header--hidden");
-    } else if (currentScrollY < lastScrollY) {
-      header.classList.remove("header--hidden");
-    }
-
-    //Atualiza a "última posição" para a próxima checagem
-    lastScrollY = currentScrollY;
-  });
-
-  const mobileToggle = document.querySelector(".header__mobile-toggle");
-  const allNavLinks = document.querySelectorAll(".header__list a");
+  }
+  window.addEventListener("scroll", handleScroll);
 
   function toggleMenu() {
-    header.classList.toggle("header--mobile-open");
+    const isOpening = !mobileToggle.classList.contains("is-active");
 
+    mobileToggle.classList.toggle("is-active");
+    navList.classList.toggle("is-active");
     document.body.classList.toggle("body--lock-scroll");
 
-    const isExpanded = header.classList.contains("header--mobile-open");
-    mobileToggle.setAttribute("aria-expanded", isExpanded);
+    mobileToggle.setAttribute("aria-expanded", isOpening);
   }
 
   mobileToggle.addEventListener("click", toggleMenu);
 
   allNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      if (header.classList.contains("header--mobile-open")) {
-        const href = link.getAttribute("href");
-        if (href && href.startsWith("#")) {
-          toggleMenu();
-        }
+      if (navList.classList.contains("is-active")) {
+        toggleMenu();
       }
     });
   });

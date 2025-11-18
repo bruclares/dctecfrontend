@@ -1,16 +1,11 @@
-/* ---------------------------------- */
-/* 1. LAYOUT PRINCIPAL (BLOCO)        */
-/* ---------------------------------- */
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
   background-color: transparent;
   padding: var(--space-md) 0;
-  transition: background-color 0.4s ease, padding 0.4s ease,
-    box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .header__nav {
@@ -19,27 +14,16 @@
   align-items: center;
 }
 
-/* ---------------------------------- */
-/* 2. MODIFICADORES DE ESTADO         */
-/* ---------------------------------- */
 .header--scrolled {
-  position: fixed;
-  padding: var(--space-sm) 0;
   background-color: var(--color-text-primary);
+  padding: var(--space-md) 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.header--hidden {
-  transform: translateY(-100%);
-  box-shadow: none;
-}
-
-/* ---------------------------------- */
-/* 3. ELEMENTOS INTERNOS (DESKTOP)    */
-/* ---------------------------------- */
 .header__logo img {
   max-width: 100px;
   height: auto;
+  display: block;
 }
 
 .header__list {
@@ -54,13 +38,8 @@
   font-size: var(--font-size-xl);
   font-weight: 500;
   color: var(--color-text-light);
-  text-decoration: none;
   position: relative;
   padding-bottom: var(--space-xs);
-}
-
-.header__link:hover {
-  text-decoration: none;
 }
 
 .header__link::after {
@@ -73,167 +52,133 @@
   background-color: var(--color-primary);
   transition: width 0.3s ease;
 }
-
-.header__link:hover::after,
-.header__link:focus::after {
+.header__link:hover::after {
   width: 100%;
 }
 
-/* ---------------------------------- */
-/* 4. COMPONENTES MOBILE (BASE)       */
-/* ---------------------------------- */
+.header__mobile-toggle,
 .header__mobile-logo {
   display: none;
-  list-style: none;
 }
 
-/* O BOTÃO (Hidden no Desktop) */
-.header__mobile-toggle {
-  /* Reset básico */
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
-  z-index: 9999;
-  
-  /* Tamanho da área de clique */
-  width: 44px;
-  height: 44px;
-  
-  /* Escondido por padrão (Desktop) */
-  display: none; 
-}
-
-/* O ÍCONE (A caixa do desenho) */
-.hamburger-box {
-  position: relative;
-  width: 30px;
-  height: 24px;
-  
-  /* Garante que ele se comporte como bloco para centralizar */
-  display: block; 
-  margin: 0 auto; /* Centraliza horizontalmente se o pai permitir */
-}
-
-/* AS LINHAS DO ÍCONE */
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-  display: flex;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  border-radius: 3px;
-  background-color: var(--color-text-light);
-  transition: all 0.3s ease-in-out;
-}
-
-.hamburger-inner {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hamburger-inner::before {
-  top: -10px;
-  width: 20px;
-  right: 0;
-  left: auto;
-}
-
-.hamburger-inner::after {
-  bottom: -10px;
-  width: 15px;
-  right: 0;
-  left: auto;
-}
-
-/* ---------------------------------- */
-/* 5. ESTADO "ABERTO" (MOBILE)        */
-/* ---------------------------------- */
-.header--mobile-open .header__list {
-  transform: translateX(0);
-}
-
-/* Animação do X */
-.header--mobile-open .hamburger-inner {
-  background-color: transparent;
-  transform: translateY(-50%);
-}
-.header--mobile-open .hamburger-inner::before {
-  top: 0;
-  transform: rotate(45deg);
-  width: 100%;
-  right: auto;
-}
-.header--mobile-open .hamburger-inner::after {
-  bottom: 0;
-  transform: rotate(-45deg);
-  width: 100%;
-  right: auto;
-}
-
-/* ---------------------------------- */
-/* 6. RESPONSIVO (MOBILE)             */
-/* ---------------------------------- */
 @media (max-width: 768px) {
-  
-  /* Ajuste do Padding do Nav */
-  .header__nav {
-    padding-left: var(--space-lg);
-    padding-right: var(--space-lg);
-  }
-  
-  /* MOSTRA O BOTÃO NO MOBILE */
-  .header__mobile-toggle {
-    /* Aqui está a mágica: Flexbox para centralizar o ícone */
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Esconde o botão "Orçamento" do desktop */
   .header__nav > .botao {
     display: none;
   }
 
-  /* Estilo da Gaveta (Menu Aberto) */
+  .header__mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+  }
+
+  .header__mobile-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    border-radius: 4px;
+  }
+
+  .hamburger-box {
+    position: relative;
+    width: 30px;
+    height: 24px;
+  }
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-light);
+    border-radius: 2px;
+    transition: transform 0.3s ease, width 0.3s ease;
+    left: 0;
+  }
+
+  .hamburger-inner {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .hamburger-inner::before {
+    content: "";
+    top: -8px;
+    width: 22px;
+    left: auto;
+    right: 0;
+  }
+  .hamburger-inner::after {
+    content: "";
+    bottom: -8px;
+    width: 14px;
+    left: auto;
+    right: 0;
+  }
+
+  .header__mobile-toggle.is-active .hamburger-inner {
+    background-color: transparent;
+  }
+
+  .header__mobile-toggle.is-active .hamburger-inner::before {
+    top: 0;
+    transform: rotate(45deg);
+    width: 100%;
+    right: auto;
+    left: 0;
+  }
+  .header__mobile-toggle.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+    width: 100%;
+    right: auto;
+    left: 0;
+  }
+
   .header__list {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100dvh;
     padding: var(--space-section);
+
     background-color: var(--color-text-primary);
-    
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: var(--space-xl);
-    
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out;
-    z-index: 9998;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+    z-index: 105;
   }
-  
+
+  .header__list.is-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
   .header__link {
     font-size: var(--font-size-2xl);
   }
-  
   .header__link::after {
     display: none;
   }
 
-  /* Logo dentro do menu mobile */
   .header__mobile-logo {
     display: block;
-    width: 250px;
-    margin-bottom: var(--space-lg);
+    width: 180px;
+    /* margin-bottom: var(--space-xl); */
   }
   .header__mobile-logo img {
     width: 100%;
-    height: auto;
   }
 }
