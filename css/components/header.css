@@ -8,6 +8,16 @@
   padding: var(--space-md) 0;
 }
 
+.header--hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
+.header--scrolled.header--hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
 .header__nav {
   display: flex;
   justify-content: space-between;
