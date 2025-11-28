@@ -1,9 +1,14 @@
+/* ========================================= */
+/* HEADER - ARQUIVO COMPLETO E CORRIGIDO    */
+/* ========================================= */
+
+/* 1. ESTRUTURA BASE (Desktop First) */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 100; /* Z-index racional */
   background-color: transparent;
   padding: var(--space-md) 0;
   transition: all 0.3s ease;
@@ -15,6 +20,7 @@
   align-items: center;
 }
 
+/* 2. ESTADOS DO HEADER */
 .header--scrolled {
   background-color: var(--color-text-primary);
   padding: var(--space-sm) 0;
@@ -25,6 +31,12 @@
   transform: translateY(-100%);
 }
 
+.header--scrolled.header--hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
+/* 3. ELEMENTOS INTERNOS */
 .header__logo img {
   max-width: 100px;
   height: auto;
@@ -48,9 +60,7 @@
   padding-bottom: var(--space-xs);
 }
 
-.header__link:hover {
-  text-decoration: none;
-}
+.header__link:hover { text-decoration: none; }
 
 .header__link::after {
   content: "";
@@ -62,43 +72,50 @@
   background-color: var(--color-primary);
   transition: width 0.3s ease;
 }
-.header__link:hover::after {
-  width: 100%;
-}
+.header__link:hover::after { width: 100%; }
 
+/* Esconde elementos mobile no desktop */
 .header__mobile-logo,
 .header__mobile-toggle {
   display: none;
 }
 
+/* ========================================= */
+/* MOBILE (Max-Width 768px)                 */
+/* ========================================= */
 @media (max-width: 768px) {
+  
+  /* Ajuste de padding lateral */
   .header__nav {
     padding-left: var(--space-lg);
     padding-right: var(--space-lg);
   }
 
+  /* 1. BOTÃO DO MENU (HAMBURGUER) */
   .header__mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 44px;
+    display: flex; /* Ativa o Flexbox */
+    align-items: center; /* Centraliza Verticalmente */
+    justify-content: center; /* Centraliza Horizontalmente */
+    
+    width: 44px; /* Área de toque */
     height: 44px;
     padding: 0;
-
+    
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1100;
+    z-index: 110; /* Acima do menu */
   }
 
+  /* O Ícone (Desenho) */
   .hamburger-box {
     position: relative;
     width: 30px;
     height: 24px;
-    display: block;
+    display: block; /* Garante comportamento de bloco */
   }
 
+  /* As Linhas (Configuração Base) */
   .hamburger-inner,
   .hamburger-inner::before,
   .hamburger-inner::after {
@@ -111,25 +128,33 @@
     left: 0;
   }
 
-  .hamburger-inner {
-    top: 50%;
-    transform: translateY(-50%);
+  /* ESTADO FECHADO (O Visual Dinâmico / Escadinha) */
+  
+  /* Linha do Meio */
+  .hamburger-inner { 
+    top: 50%; 
+    transform: translateY(-50%); 
   }
-  .hamburger-inner::before {
-    content: "";
-    top: -8px;
-    width: 22px;
-    left: auto;
-    right: 0;
+  
+  /* Linha de CIMA (Média e à Direita) */
+  .hamburger-inner::before { 
+    content: ''; 
+    top: -8px; 
+    width: 22px; /* Menor */
+    left: auto;  /* Solta da esquerda */
+    right: 0;    /* Cola na direita */
   }
-  .hamburger-inner::after {
-    content: "";
-    bottom: -8px;
-    width: 14px;
+  
+  /* Linha de BAIXO (Pequena e à Direita) */
+  .hamburger-inner::after { 
+    content: ''; 
+    bottom: -8px; 
+    width: 14px; /* Bem menor */
     left: auto;
-    right: 0;
+    right: 0;    /* Cola na direita */
   }
 
+  /* 2. O MENU GAVETA (LISTA) */
   .header__list {
     position: fixed;
     top: 0;
@@ -137,44 +162,45 @@
     width: 100%;
     height: 100vh;
     padding: var(--space-section);
-
+    
     background-color: var(--color-text-primary);
-
+    
     flex-direction: column;
     justify-content: center;
     gap: var(--space-xl);
-
+    
     transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
-    z-index: 1050;
+    z-index: 105;
   }
 
-  .header__nav > .botao {
-    display: none;
-  }
-  .header__link {
-    font-size: var(--font-size-2xl);
-  }
-  .header__link::after {
-    display: none;
-  }
-
+  /* Itens dentro do menu mobile */
+  .header__nav > .botao { display: none; } /* Esconde botão desktop */
+  .header__link { font-size: var(--font-size-2xl); }
+  .header__link::after { display: none; }
+  
   .header__mobile-logo {
     display: block;
     width: 200px;
     margin-bottom: var(--space-lg);
   }
-  .header__mobile-logo img {
-    width: 100%;
-  }
+  .header__mobile-logo img { width: 100%; }
 
+  /* ===================================== */
+  /* ESTADOS ATIVOS (QUANDO ABERTO)       */
+  /* ===================================== */
+  
+  /* Traz o menu para a tela */
   .header--mobile-open .header__list {
     transform: translateX(0);
   }
 
+  /* Transforma o ícone em X */
   .header--mobile-open .hamburger-inner {
-    background-color: transparent;
+    background-color: transparent; /* Meio some */
   }
+  
+  /* Linha de cima vira parte do X (tamanho total) */
   .header--mobile-open .hamburger-inner::before {
     top: 0;
     transform: rotate(45deg);
@@ -182,6 +208,8 @@
     right: auto;
     left: 0;
   }
+  
+  /* Linha de baixo vira parte do X (tamanho total) */
   .header--mobile-open .hamburger-inner::after {
     bottom: 0;
     transform: rotate(-45deg);
