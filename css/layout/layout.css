@@ -26,7 +26,8 @@ footer {
   background-color: var(--color-background-light);
 }
 
-.diferenciais, .contato {
+.diferenciais,
+.contato {
   background-color: var(--color-background-medium);
 }
 
@@ -61,4 +62,11 @@ footer {
 
 .body--lock-scroll {
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  section,
+  footer {
+    scroll-margin-top: 124px;
+  }
 }

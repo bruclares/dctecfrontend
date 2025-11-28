@@ -35,9 +35,7 @@
   --space-section: 5rem; /* 80px */
 }
 
-html {
-  scroll-behavior: smooth;
-}
+
 
 body {
   font-family: var(--font-text);
