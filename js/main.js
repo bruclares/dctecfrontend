@@ -3,7 +3,13 @@ window.addEventListener("DOMContentLoaded", () => {
   const mobileToggle = document.querySelector(".header__mobile-toggle");
   const navList = document.querySelector(".header__list");
   const allNavLinks = document.querySelectorAll(".header__list a");
-  let lastScrollY = 0;
+
+  if (!header || !mobileToggle || !navList) {
+    // Elementos essenciais não encontrados, não executa o restante
+    return;
+  }
+
+  let lastScrollY = window.scrollY;
 
   function handleScroll() {
     const currentScrollY = window.scrollY;
@@ -24,7 +30,19 @@ window.addEventListener("DOMContentLoaded", () => {
     lastScrollY = currentScrollY;
   }
 
-  window.addEventListener("scroll", handleScroll);
+  // Throttle para melhorar performance
+  function throttle(fn, wait) {
+    let lastTime = 0;
+    return function (...args) {
+      const now = Date.now();
+      if (now - lastTime >= wait) {
+        lastTime = now;
+        fn.apply(this, args);
+      }
+    };
+  }
+
+  window.addEventListener("scroll", throttle(handleScroll, 100));
 
   function toggleMenu() {
     header.classList.toggle("header--mobile-open");
@@ -32,11 +50,22 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   mobileToggle.addEventListener("click", toggleMenu);
+
   allNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
       if (header.classList.contains("header--mobile-open")) {
         toggleMenu();
       }
     });
+  });
+
+  // Acessibilidade: fechar menu com ESC
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "Escape" &&
+      header.classList.contains("header--mobile-open")
+    ) {
+      toggleMenu();
+    }
   });
 });
