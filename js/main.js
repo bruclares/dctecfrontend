@@ -68,4 +68,67 @@ window.addEventListener("DOMContentLoaded", () => {
       toggleMenu();
     }
   });
+
+  const contactForm = document.getElementById("formContato");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault(); // 1. Impede o recarregamento da página
+
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.innerText;
+
+      // 2. UX: Feedback visual imediato e bloqueio contra duplo clique
+      submitButton.innerText = "Enviando...";
+      submitButton.disabled = true;
+      submitButton.classList.add("botao--loading"); // Opcional: para estilizar via CSS
+
+      // 3. Captura os dados com segurança
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        // 4. Envio para a API (Substitua pela URL do seu Render se mudar)
+        const response = await fetch(
+          "https://api-de-contato.onrender.com/api/send",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
+
+        // 5. Tratamento de Resposta
+        if (response.ok) {
+          alert(
+            "✅ Mensagem enviada com sucesso! Em breve entraremos em contato."
+          );
+          contactForm.reset(); // Limpa os campos
+        } else {
+          // Captura erro 400/422/500
+          const errorData = await response.json();
+          console.warn("Erro na API:", errorData); // Log para nós (devs)
+
+          // Mensagem amigável para o usuário (tratamento de erro 422 comum)
+          let msgErro = "Ocorreu um erro ao enviar.";
+          if (response.status === 422) {
+            msgErro =
+              "Verifique os dados preenchidos (e-mail inválido ou mensagem curta demais).";
+          }
+          alert(`❌ ${msgErro}`);
+        }
+      } catch (error) {
+        // Erro de rede (internet caiu, servidor fora do ar)
+        console.error("Erro de rede:", error);
+        alert("❌ Erro de conexão. Verifique sua internet e tente novamente.");
+      } finally {
+        // 6. Restaura o botão independente do resultado
+        submitButton.innerText = originalButtonText;
+        submitButton.disabled = false;
+        submitButton.classList.remove("botao--loading");
+      }
+    });
+  }
 });
